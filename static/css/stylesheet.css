@@ -98,7 +98,7 @@ form .fields .input-field{
 	border: 1px solid #aaa;
 	padding: 0 15px;
 	height: 35px;
-	margin: 8px 0;
+	/* margin: 4px 0; */
 }
 /* .input-field select{
 	display: flex;
@@ -113,6 +113,11 @@ form .fields .input-field{
 }
 .input-field input[type="date"]:valid{
 	color: #333;
+}
+.input-field{
+	height: 70px;
+	min-width: 300px;
+	
 }
 .container form button, .nextBtn{
 	display: flex;

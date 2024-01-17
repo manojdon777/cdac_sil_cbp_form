@@ -20,10 +20,10 @@
 
 </head>
 <body>
-	<div class="container">
+	<div class="container" id="formdata">
 		<header>Registration</header>
 		
-		<form action="#">
+		<form id="form_id" action="{{ url_for('register') }}" method="POST">
 			<div class="form first">
 				<div class="details personal">
 					<span class="title">Personal Details</span>
@@ -31,26 +31,26 @@
 
 						<div class="input-field">
 							<label for="fullName">Full Name</label>
-							<input type="text" id="fullName" name="fullName" placeholder="Enter your Name" oninput="upperCaseF(this)">
+							<input type="text" id="fullName" name="fullName" placeholder="Enter your Name" oninput="upperCaseF(this)" value="Virat kohli">
 							<span id="fullNameError" class="fullNameError error"></span>
 						</div>
 						
 						<div class="input-field">
 							<label for="mothersName">Mothers Name</label>
-							<input type="text" id="mothersName" name="mothersName" placeholder="Mothers Name" oninput="upperCaseF(this)" >
+							<input type="text" id="mothersName" name="mothersName" placeholder="Mothers Name" oninput="upperCaseF(this)" value="Saroj kohli">
 							<span id="mothersNameError" class="mothersNameError error"></span>
 						</div>
 						
 						<div class="input-field">
 							<label for="fathersName">Fathers Name</label>
-							<input type="text" id="fathersName" name="fathersName" placeholder="Fathers Name" oninput="upperCaseF(this)" >
+							<input type="text" id="fathersName" name="fathersName" placeholder="Fathers Name" oninput="upperCaseF(this)" value="Prem Kohli">
 							<span id="fathersNameError" class="fathersNameError error"></span>
 						</div>
 
 						<div class="input-field">
 							<label for="gender">Gender</label>
 							<select name="gender" id="gender">
-								<option value="" disabled selected>Select Gender</option>
+								<!-- <option value="" disabled selected>Select Gender</option> -->
 								<option value="male">Male</option>
 								<option value="female">Female</option>
 								<option value="other">Other</option>
@@ -60,31 +60,31 @@
 
 						<div class="input-field">
 							<label for="dob">Date of Birth</label>
-							<input type="date">
+							<input type="date" id="dob" name="dob" value="2023-01-18">
 							<span id="dobError" class="dobError error"></span>
 						</div>
 
 						<div class="input-field">
 							<label for="aadhar">Aadhar Number</label>
-							<input type="text" id="aadhar" name="aadhar" placeholder="Aadhar Number">
+							<input type="text" id="aadhar" name="aadhar" placeholder="Aadhar Number" value="989009890012">
 							<span id="aadharError" class="aadharError error"></span>
 						</div>
 						
 						<div class="input-field">
 							<label for="mobile">Mobile Number</label>
-							<input type="text" id="mobile" name="mobile" placeholder="Mobile Number">
+							<input type="text" id="mobile" name="mobile" placeholder="Mobile Number" value="9890098900">
 							<span id="mobileError" class="mobileError error"></span>
 						</div>
 
 						<div class="input-field">
-							<label for="emailid">Email ID</label>
-							<input type="text" id="emailid" name="emailid" placeholder="Email ID">
-							<span id="emailid" class="emailid error"></span>
+							<label for="email">Email ID</label>
+							<input type="text" id="email" name="email" placeholder="Email ID" value="vir_koh@gmail.com">
+							<span id="emailError" class="emailError error"></span>
 						</div>
 
 						<div class="input-field">
 							<label for="parentsMobile">Parents Mobile Number</label>
-							<input type="text" id="parentsMobile" name="parentsMobile" placeholder="Parents Mobile Number">
+							<input type="text" id="parentsMobile" name="parentsMobile" placeholder="Parents Mobile Number" value="9890098900">
 							<span id="parentsMobileError" class="parentsMobileError error"></span>
 						</div>
 
@@ -104,70 +104,82 @@
 						<div class="input-field">
 							<label for="community">Community</label>
 							<select name="community" id="community" onchange="toggleTextbox()">
+								<!-- <option value="" disabled selected>Select Community</option> -->
+								<option value="sc">SC</option>
+								<option value="st">ST</option>
+								<option value="women">Women</option>
+							</select>
+							<span id="communityError" class="communityError error"></span>
+						</div>
+						
+						<div class="input-field">
+							<label for="casteCertNum">Caste Certificate Number</label>
+							<input type="text" id="casteCertNum" name="casteCertNum" placeholder="Caste Certificate Number" value="IND/GOV/SIL/2/4435">
+							<span id="casteCertNumError" class="casteCertNumError error"></span>
+						</div>
+						
+						<div class="input-field">
+							<label for="issueDate">Issue Date</label>
+							<input type="date" id="issueDate" name="issueDate" value="2013-01-08">
+							<span id="issueDateError" class="issueDateError error"></span>
+						</div>
+
+						<div class="input-field">
+							<label for="issueAuthority">Issuing Authority</label>
+							<input type="text" id="issueAuthority" name="issueAuthority" placeholder="Issuing Authority" value="Tahsildar">
+							<span id="issueAuthorityError" class="issueAuthorityError error"></span>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="details educationBackground">
+					<span class="title">Caste Certificate/Community Details</span>
+					<div class="fields">
+
+						<div class="input-field">
+							<label for="community">Community</label>
+							<select name="community" id="community" onchange="toggleTextbox()">
 								<option value="" disabled selected>Select Community</option>
 								<option value="sc">SC</option>
 								<option value="st">ST</option>
 								<option value="women">Women</option>
 							</select>
-							<span id="communityError" class="communityError"></span>
+							<span id="communityError" class="communityError error"></span>
 						</div>
 						
 						<div class="input-field">
 							<label for="casteCertNum">Caste Certificate Number</label>
 							<input type="text" id="casteCertNum" name="casteCertNum" placeholder="Caste Certificate Number">
+							<span id="casteCertNumError" class="casteCertNumError error"></span>
 						</div>
 						
 						<div class="input-field">
 							<label for="issueDate">Issue Date</label>
-							<input type="date" id="issueDate" name="issueDate" >
+							<input type="date" id="issueDate" name="issueDate">
+							<span id="issueDateError" class="issueDateError error"></span>
 						</div>
 
 						<div class="input-field">
 							<label for="issueAuthority">Issuing Authority</label>
 							<input type="text" id="issueAuthority" name="issueAuthority" placeholder="Issuing Authority">
+							<span id="issueAuthorityError" class="issueAuthorityError error"></span>
 						</div>
 					</div>
-				</div>
+				</div> -->
 
 				<div class="buttons">
 					<!-- <button class="backBtn">
 						<i class="uil uil-navigator"></i>
 						<span class="btnText">Back</span>
 					</button> -->
-					<button type="button" id="nextBtn" class="nextBtn" onclick="validateForm()">
+					<button type="submit" id="nextBtn" class="nextBtn" onclick="validateForm()">
 						<span class="btnText">Next</span>
 						<i class="uil uil-navigator"></i>
 					</button>
 				</div>
 			</div>
 				
-			<div>
-				<!-- <label for="mobile">Mobile Number</label> -->
-				<!-- <input type="text" id="mobile" name="mobile"> -->
-				<!-- <label for="mobile">Parents Mobile Number</label> -->
-				<!-- <input type="text" id="mobile" name="mobile">
-				<!-- <label for="emailid">Email ID</label> -->
-				<!-- <input type="text" id="emailid" name="emailid">
-				<!-- <label for="aadhar">Aadhar Number</label> -->
-				<!-- <input type="text" id="aadhar" name="aadhar">
-				<!-- <label for="community">Community</ljabel> -->
-				<!-- <select name="cars" id="cars"> -->
-					<!-- <option value="sc">SC</option> -->
-					<!-- <option value="st">ST</option> -->
-					<!-- <option value="women">Wemen</option> -->
-				<!-- </select>				 -->
-				<!-- <label for="casteCertNum">Caste Certificate Number</label> -->
-				<!-- <input type="text" id="casteCertNum" name="casteCertNum">
-				<!-- <label for="issueDate">Issue Date</label> -->
-				<!-- <input type="text" id="issueDate" name="issueDate">
-				<!-- <label for="issueAuthority">Issuing Authority</label> -->
-				<!-- <input type="text" id="issueAuthority" name="issueAuthority">
-				<!-- <label for="State">State</label> -->
-				<!-- <input type="text" id="State" name="State">
-				<!-- <label for="city">City</label> -->
-				<!-- <input type="text" id="city" name="city">
-				<!-- <label for="pincode">Pincode</label> -->
-				<!-- <input type="text" id="pincode" name="pincode">
+			<!-- <div> -->
+				
 				<!-- <label for="nameinsti">Name of the Institute last Studied</label> -->
 				<!-- <input type="text" id="nameinsti" name="nameinsti">
 				<!-- <label for="percentage">Percentage</label> -->
@@ -178,6 +190,12 @@
 				<!-- <input type="text" id="duration" name="duration">
 				<!-- <label for="yearpass">Year of Passing</label> -->
 				<!-- <input type="date" id="yearpass" name="yearpass">
+				<!-- <label for="State">State</label> -->
+				<!-- <input type="text" id="State" name="State">
+				<!-- <label for="city">City</label> -->
+				<!-- <input type="text" id="city" name="city">
+				<!-- <label for="pincode">Pincode</label> -->
+				<!-- <input type="text" id="pincode" name="pincode">
 				<!-- <label for="datecommense">Date of Commencement of CBP</label> -->
 				<!-- <input type="date" id="datecommense" name="datecommense">
 				<!-- <label for="nameasbank">Name as per Bank Account</label> -->
@@ -188,7 +206,7 @@
 				<!-- <input type="text" id="bankifsc" name="bankifsc">
 				<!-- <label for="branchname">Branch Name</label> -->
 				<!-- <input type="text" id="branchname" name="branchname"> -->
-			</div>
+			<!-- </div> -->
 		</form>		
 	</div>
 	<script src="../static/js/script.js"></script>
