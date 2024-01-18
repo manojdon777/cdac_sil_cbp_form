@@ -33,14 +33,15 @@ def register():
         issueDate = request.form['issueDate']
         issueAuthority = request.form['issueAuthority']
 
-        dob = datetime.datetime.strptime(dob, '%Y-%m-%d')
-        issueDate = datetime.datetime.strptime(issueDate, '%Y-%m-%d')
+        dob = datetime.datetime.strptime(dob, '%Y-%m-%d').date()
+        issueDate = datetime.datetime.strptime(issueDate, '%Y-%m-%d').date()
 
         mycursor = mydb.cursor()
         sql = "insert into form (fullName,mothersName,fathersName,gender,dob,aadhar,mobile,email,parentsMobile,community,casteCertNum,issueDate,issueAuthority) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-        val = ("{fullName}", "{mothersName}", "{fathersName}", "{gender}", "{dob}", "{aadhar}", "{mobile}", "{email}", "{parentsMobile}", "{community}", "{casteCertNum}", "{issueDate}", "{issueAuthority}")
-        mycursor.execute(sql, val)
+        # val = ("{fullName}", "{mothersName}", "{fathersName}", "{gender}", "{dob}", "{aadhar}", "{mobile}", "{email}", "{parentsMobile}", "{community}", "{casteCertNum}", "{issueDate}", "{issueAuthority}")
+        val = (fullName, mothersName, fathersName, gender, dob, aadhar, mobile, email, parentsMobile, community, casteCertNum, issueDate, issueAuthority)
 
+        mycursor.execute(sql, val)
         mydb.commit()
 
         print(mycursor.rowcount, "Success!!")
